@@ -11,7 +11,7 @@ const ProjectsSection = () => {
       tags: ["React", "Node.js", "Express", "MongoDB", "JWT"],
       imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d", // ecommerce
       liveUrl: "#",
-      repoUrl: "https://github.com/exoticcgirish/ecommerce-app",
+      repoUrl: "https://github.com/exoticcgirish/commerce-project",
     },
     {
       title: "Face Recognition Attendance System",
@@ -20,7 +20,7 @@ const ProjectsSection = () => {
       tags: ["React", "FastAPI", "MongoDB", "DeepFace"],
       imageUrl: faceImg, // AI/face
       liveUrl: "#",
-      repoUrl: "https://github.com/exoticcgirish/face-attendance-system",
+      repoUrl: "https://github.com/exoticcgirish/attendence",
     },
     {
       title: "Health & Fitness Application",
@@ -29,7 +29,7 @@ const ProjectsSection = () => {
       tags: ["React", "FastAPI", "MongoDB"],
       imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b", // fitness
       liveUrl: "#",
-      repoUrl: "https://github.com/exoticcgirish/fitness-app",
+      repoUrl: "https://github.com/exoticcgirish/health",
     },
     {
       title: "Portfolio Website",

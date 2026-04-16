@@ -13,7 +13,6 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
-  // Scroll spy effect
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY + 200;
