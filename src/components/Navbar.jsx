@@ -59,7 +59,7 @@ const Navbar = () => {
       <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between h-16'>
           <a href='#home' className='text-2xl font-bold text-gray-900'>
-            exoticc.girish
+            StackCraft
           </a>
 
           <div className='hidden space-x-8 md:flex'>
