@@ -1,35 +1,60 @@
 import React from "react";
-// 1. Import icons for the links
 import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
-
+import faceImg from "../assets/face.jpeg";
 const ProjectsSection = () => {
-  // 2. Expanded the projects array with more data
   const projects = [
+    {
+      title: "E-Commerce Web Application",
+      description:
+        "Full-stack e-commerce platform with JWT authentication, product management, and scalable MongoDB schema design.",
+      tags: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+      imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d", // ecommerce
+      liveUrl: "#",
+      repoUrl: "https://github.com/exoticcgirish/ecommerce-app",
+    },
+    {
+      title: "Face Recognition Attendance System",
+      description:
+        "Face recognition-based attendance system using FastAPI and DeepFace with secure JWT authentication.",
+      tags: ["React", "FastAPI", "MongoDB", "DeepFace"],
+      imageUrl: faceImg, // AI/face
+      liveUrl: "#",
+      repoUrl: "https://github.com/exoticcgirish/face-attendance-system",
+    },
+    {
+      title: "Health & Fitness Application",
+      description:
+        "Workout tracking system with authentication, REST APIs, and responsive UI using React and FastAPI.",
+      tags: ["React", "FastAPI", "MongoDB"],
+      imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b", // fitness
+      liveUrl: "#",
+      repoUrl: "https://github.com/exoticcgirish/fitness-app",
+    },
     {
       title: "Portfolio Website",
       description:
-        "Built a personal portfolio website to showcase skills and projects using React and Tailwind CSS.",
+        "Personal portfolio built using React and Tailwind CSS to showcase projects.",
       tags: ["React", "Tailwind CSS", "Vite"],
-      imageUrl: "./p.png",
+      imageUrl: "./p.png", // coding
       liveUrl: "https://pfront-one.vercel.app/",
       repoUrl: "https://github.com/phoniccgirish/pfront",
     },
     {
       title: "Tic Tac Toe Game",
       description:
-        "Developed an interactive Tic Tac Toe game with dynamic game logic and responsive design.",
+        "Interactive Tic Tac Toe game with dynamic logic and responsive UI.",
       tags: ["React", "JavaScript", "CSS"],
-      imageUrl: "./t.png", // Placeholder image
-      liveUrl: "https://tic-tac-toe-toag.vercel.app/", // Replace '#' with your live link
-      repoUrl: "https://github.com/phoniccgirish/Tic-Tac-Toe", // Replace '#' with your repo link
+      imageUrl: "./t.png", // game
+      liveUrl: "https://tic-tac-toe-toag.vercel.app/",
+      repoUrl: "https://github.com/phoniccgirish/Tic-Tac-Toe",
     },
     {
       title: "Weather Web App",
       description:
-        "Developed a weather application using an external API to display real-time weather data.",
+        "Weather app using external API to show real-time weather data.",
       tags: ["JavaScript", "HTML", "CSS", "API"],
-      imageUrl: "./w.png",
+      imageUrl: "./w.png", // weather
       liveUrl: "https://weather-app0202.netlify.app/",
       repoUrl: "#",
     },
@@ -43,28 +68,26 @@ const ProjectsSection = () => {
         </h2>
         <p className='mt-4 text-lg text-gray-600'>A few things I've built.</p>
 
-        {/* 3. Updated grid for the new card layout */}
         <div className='grid gap-8 mt-12 md:grid-cols-2 lg:grid-cols-3'>
           {projects.map((project) => (
             <div
               key={project.title}
-              // 4. Card layout updated:
-              // - overflow-hidden clips the image
-              // - flex-col makes the card align vertically
-              // - transition & hover effects added
               className='flex flex-col overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1'
             >
-              {/* Project Image */}
+              {/* Image */}
               <img
                 src={project.imageUrl}
                 alt={project.title}
                 className='flex-shrink-0 object-cover w-full h-48'
+                onError={(e) =>
+                  (e.target.src =
+                    "https://via.placeholder.com/400x200?text=Project")
+                }
               />
 
-              {/* Card Content */}
-              {/* 5. flex-grow makes this section fill the available space */}
+              {/* Content */}
               <div className='flex flex-col flex-grow p-6'>
-                {/* Tech Tags */}
+                {/* Tags */}
                 <div className='flex flex-wrap gap-2 mb-3'>
                   {project.tags.map((tag) => (
                     <span
@@ -86,26 +109,33 @@ const ProjectsSection = () => {
                   {project.description}
                 </p>
 
-                {/* 6. Action Links (mt-auto pushes this to the bottom) */}
-                <div className='flex justify-start gap-4 pt-6 mt-auto'>
-                  <a
-                    href={project.liveUrl}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-700'
-                  >
-                    <FiExternalLink />
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.repoUrl}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='inline-flex items-center gap-2 text-sm font-medium text-gray-700 transition-colors hover:text-gray-900'
-                  >
-                    <FaGithub />
-                    View Code
-                  </a>
+                {/* Buttons */}
+                <div className='flex flex-wrap gap-4 pt-6 mt-auto'>
+                  {/* Show Live Demo only if exists */}
+                  {project.liveUrl !== "#" && (
+                    <a
+                      href={project.liveUrl}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700'
+                    >
+                      <FiExternalLink />
+                      Live Demo
+                    </a>
+                  )}
+
+                  {/* Show GitHub only if exists */}
+                  {project.repoUrl !== "#" && (
+                    <a
+                      href={project.repoUrl}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900'
+                    >
+                      <FaGithub />
+                      View Code
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
