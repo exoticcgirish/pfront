@@ -38,6 +38,7 @@ const AboutSection = () => {
               Senior Secondary (Class XII)
             </strong>
             S.V.M Inter College, Gorakhpur (2023)
+             <span className='block text-sm text-gray-500'>Percentage: 76%</span>
           </li>
           {/* --- This is the new list item you requested --- */}
           <li>
